@@ -98,9 +98,9 @@ namespace JogoDaVelha
                 Console.WriteLine($"Partida terminada! o jogador 'X' ganhou essa partida!");
                 return "fim";
             }
-            else if (count == 8)
+            else if (count == 9)
             {
-                Console.WriteLine("DEU VELHAR!");
+                Console.WriteLine("DEU VELHA!");
                 return "fim"; ;
             }
             else
