@@ -69,18 +69,33 @@ namespace JogoDaVelha
 
         private static string Partida(List<string> tab, int count, string saida)
         {
-            bool h1 = (new[] { tab[0], tab[1], tab[2] }.All(x => x == "X" || x == "O"));
-            bool h2 = (new[] { tab[3], tab[4], tab[5] }.All(x => x == "X" || x == "O"));
-            bool h3 = (new[] { tab[6], tab[7], tab[8] }.All(x => x == "X" || x == "O"));
-            bool v1 = (new[] { tab[0], tab[3], tab[6] }.All(x => x == "X" || x == "O"));
-            bool v2 = (new[] { tab[1], tab[4], tab[7] }.All(x => x == "X" || x == "O"));
-            bool v3 = (new[] { tab[2], tab[5], tab[8] }.All(x => x == "X" || x == "O"));
-            bool x1 = (new[] { tab[0], tab[4], tab[8] }.All(x => x == "X" || x == "O"));
-            bool x2 = (new[] { tab[6], tab[4], tab[2] }.All(x => x == "X" || x == "O"));
+            //O
+            bool ho1 = (new[] { tab[0], tab[1], tab[2] }.All(x => x == "O"));
+            bool ho2 = (new[] { tab[3], tab[4], tab[5] }.All(x => x == "O"));
+            bool ho3 = (new[] { tab[6], tab[7], tab[8] }.All(x => x == "O"));
+            bool vo1 = (new[] { tab[0], tab[3], tab[6] }.All(x => x == "O"));
+            bool vo2 = (new[] { tab[1], tab[4], tab[7] }.All(x => x == "O"));
+            bool vo3 = (new[] { tab[2], tab[5], tab[8] }.All(x => x == "O"));
+            bool to1 = (new[] { tab[0], tab[4], tab[8] }.All(x => x == "O"));
+            bool to2 = (new[] { tab[6], tab[4], tab[2] }.All(x => x == "O"));
+            //X
+            bool hx1 = (new[] { tab[0], tab[1], tab[2] }.All(x => x == "X"));
+            bool hx2 = (new[] { tab[3], tab[4], tab[5] }.All(x => x == "X"));
+            bool hx3 = (new[] { tab[6], tab[7], tab[8] }.All(x => x == "X"));
+            bool vx1 = (new[] { tab[0], tab[3], tab[6] }.All(x => x == "X"));
+            bool vx2 = (new[] { tab[1], tab[4], tab[7] }.All(x => x == "X"));
+            bool vx3 = (new[] { tab[2], tab[5], tab[8] }.All(x => x == "X"));
+            bool tx1 = (new[] { tab[0], tab[4], tab[8] }.All(x => x == "X"));
+            bool tx2 = (new[] { tab[6], tab[4], tab[2] }.All(x => x == "X"));
 
-            if (h1 || h2 || h3 || v1 || v2 || v3 || x1 || x2)
+            if (ho1 || ho2 || ho3 || vo1 || vo2 || vo3 || to1 || to2)
             {
-                Console.WriteLine($"Partida terminada!");
+                Console.WriteLine($"Partida terminada! o jogador 'O' ganhou essa partida!");
+                return "fim";
+            }
+            else if (hx1 || hx2 || hx3 || vx1 || vx2 || vx3 || tx1 || tx2)
+            {
+                Console.WriteLine($"Partida terminada! o jogador 'X' ganhou essa partida!");
                 return "fim";
             }
             else if (count == 8)
@@ -88,7 +103,6 @@ namespace JogoDaVelha
                 Console.WriteLine("DEU VELHAR!");
                 return "fim"; ;
             }
-
             else
             {
                 return "";
